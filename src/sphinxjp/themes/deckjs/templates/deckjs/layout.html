@@ -1,0 +1,103 @@
+{#
+    deckjs/layout.html
+    ~~~~~~~~~~~~~~~~~~~~~
+
+    Original layout template for Sphinx theme.
+
+    :copyright: Copyright (c) 2012 Sphinx-user.jp, see AUTHORS.
+    :license: MIT, see LICENSE for details.
+#}
+
+{%- set theme_style_file = './_static/themes/style/web-2.0.css' -%}
+{%- set theme_transition_file = './_static/themes/transition/horizontal-slide.css' -%}
+
+{%- block doctype -%}
+<!DOCTYPE html>
+
+{%- endblock -%}
+
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    {{ metatags }}
+    {%- block htmltitle %}
+    <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+    {%- endblock %}
+	
+	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Caleb Troughton">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="{{ pathto('_static/core/deck.core.css', 1) }}">
+	<link rel="stylesheet" href="{{ pathto('_static/extensions/goto/deck.goto.css', 1) }}">
+	<link rel="stylesheet" href="{{ pathto('_static/extensions/menu/deck.menu.css', 1) }}">
+	<link rel="stylesheet" href="{{ pathto('_static/extensions/navigation/deck.navigation.css', 1) }}">
+	<link rel="stylesheet" href="{{ pathto('_static/extensions/status/deck.status.css', 1) }}">
+	<link rel="stylesheet" href="{{ pathto('_static/extensions/hash/deck.hash.css', 1) }}">
+	<link rel="stylesheet" href="{{ pathto('_static/extensions/scale/deck.scale.css', 1) }}">
+{% block deckjs_theme %}
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="{{ pathto(theme_style_file, 1) }}">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="{{ pathto(theme_transition_file, 1) }}">
+{% endblock %}
+	<script src="{{ pathto('_static/modernizr.custom.js', 1) }}"></script>
+</head>
+
+<body class="deck-container">
+
+<!-- Begin slides -->
+{% block body %} {% endblock %}
+	  
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+
+
+<script src="{{ pathto('_static/jquery-1.7.min.js', 1) }}"></script>
+
+
+<!-- Deck Core and extensions -->
+<script src="{{ pathto('_static/core/deck.core.js', 1) }}"></script>
+<script src="{{ pathto('_static/extensions/hash/deck.hash.js', 1) }}"></script>
+<script src="{{ pathto('_static/extensions/menu/deck.menu.js', 1) }}"></script>
+<script src="{{ pathto('_static/extensions/goto/deck.goto.js', 1) }}"></script>
+<script src="{{ pathto('_static/extensions/status/deck.status.js', 1) }}"></script>
+<script src="{{ pathto('_static/extensions/navigation/deck.navigation.js', 1) }}"></script>
+<script src="{{ pathto('_static/extensions/scale/deck.scale.js', 1) }}"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+	$.deck('.slide');
+});
+</script>
+
+</body>
+</html>

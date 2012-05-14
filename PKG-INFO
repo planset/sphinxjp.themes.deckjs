@@ -1,0 +1,94 @@
+Metadata-Version: 1.0
+Name: sphinxjp.themes.deckjs
+Version: 0.1.0
+Summary: A sphinx theme for HTML presentation style.
+Home-page: https://github.com/planset/sphinxjp.themes.deckjs
+Author: Daisuke Igarashi
+Author-email: planset@gmail.com
+License: MIT
+Description: ===========================
+         sphinxjp.themes.deckjs
+        ===========================
+        
+        Deck.js presentation style theme for Sphinx.
+        
+        
+        Output sample
+        =============
+        :output: http://packages.python.org/sphinxjp.themes.deckjs
+        :source: http://packages.python.org/sphinxjp.themes.deckjs/_sources/index.txt
+        
+        
+        Feature
+        =======
+        * provide ``deckjs`` directive for impress.js presentaion control
+        * provide ``deckjs`` presentation theme for render HTML document
+        
+        
+        Installation
+        ============
+        Make environment with easy_install::
+        
+           $ easy_install sphinxjp.themes.deckjs
+        
+        
+        setup conf.py with::
+        
+           extensions = ['sphinxjp.themecore']
+           html_theme = 'deckjs'
+        
+        
+        and run::
+        
+           $ make html
+        
+        
+        Requirement
+        ===========
+        Libraries:
+        
+        * Python 2.4 or later (not support 3.x)
+        * Sphinx 1.0.x or later.
+        
+        
+        Browsers:
+        
+        * Safari
+        * Chrome
+        * Firefox 10
+        
+        
+        License
+        =======
+        Licensed under the `MIT license <http://www.opensource.org/licenses/mit-license.php>`_ .
+        See the LICENSE file for specific terms.
+        
+        
+        .. END
+        
+        AUTHORS
+        =======
+        
+        Sphinx template, css, packaging
+        -------------------------------
+        * Shoji KUMAGAI <take.this.2.your.grave at gmail.com> Sphinx-users.jp
+        
+        Impress.js
+        ----------
+        * Copyright 2011-2012 Bartek Szopka
+        
+        HISTORY
+        =======
+        
+        0.1.0 (2012.02.05)
+        ------------------
+        * first release
+        
+Keywords: sphinx,reStructuredText,theme,presentation
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Text Processing :: Markup
